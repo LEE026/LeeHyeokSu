@@ -1,4 +1,6 @@
-#2019038026_이혁수
+'''
+구현자: 2019038026 이혁수
+수정자: 조민우 김규장 윤석현현'''
 import pygame
 import LoadMap
 from game.data.obj import Magnetic, Backblock, Star, Movewall,  Spring, Fakewall, Thorn, Ball, Wall, iccle,Laser,lever,potal,Cannon
@@ -180,7 +182,8 @@ def Map(screen, Life, map_):#스크린을 전달받음
 
         #포탈
         for p in portal_list:
-            p.teleport(ball)
+            if p.teleport(ball):
+                portal_list.remove(p)
 
         #대포
         for c in cannon_list:
